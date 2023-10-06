@@ -10,4 +10,7 @@ import com.example.microanuncios.model.Anuncio;
 public interface AnuncioRepository extends JpaRepository<Anuncio, Integer>{
     @Query(nativeQuery = true, value = "SELECT * FROM anuncios WHERE id_categoria = :id_categoria")
     public List<Anuncio> findAnunciosByCategoria(int id_categoria);
+
+    @Query(nativeQuery = true, value = "SELECT * FROM anuncios WHERE user = :user")
+    public Anuncio findAnuncioByUser(String user);
 }

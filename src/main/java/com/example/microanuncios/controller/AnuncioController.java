@@ -74,4 +74,12 @@ public class AnuncioController {
 			return ResponseEntity.ok(1);
 		}
 	}
+
+@	GetMapping("/listado_anuncios/{user}")
+	public ResponseEntity<AnuncioDTO> get_anuncio_user(@PathVariable("user") String user){
+		if(anuncioService.getAnuncioUser(user) == null){
+			return ResponseEntity.noContent().build();
+		}
+		return ResponseEntity.ok(anuncioService.getAnuncioUser(user));
+	}
 }
